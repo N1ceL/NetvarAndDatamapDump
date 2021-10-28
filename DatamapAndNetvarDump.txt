@@ -214,37 +214,37 @@ CBasePlayer
     iMatchStats_UtilityDamage                     0x109DC       void*
     iMatchStats_EnemiesFlashed                    0x10A54       void*
     iWeaponPurchasesThisMatch                     0x10ACC       void*
-    EquippedLoadoutItemDefIndices                 0x112A4       void*
-    unActiveQuestId                               0x11378       int
-    nQuestProgressReason                          0x1137C       int
-    unPlayerTvControlFlags                        0x11380       int
-    unCurrentEquipmentValue                       0x11384       int
-    unRoundStartEquipmentValue                    0x11386       int
-    unFreezetimeEndEquipmentValue                 0x11388       int
-    rank                                          0x1138C       void*
-    passiveItems                                  0x113A4       void*
-    bHasParachute                                 0x113A4       bool
-    unMusicID                                     0x113A8       int
-    iAccount                                      0x113B8       int
-    bHasHelmet                                    0x113C0       bool
-    bHasHeavyArmor                                0x113C1       bool
-    nHeavyAssaultSuitCooldownRemaining            0x113C4       int
-    iClass                                        0x113C8       int
-    ArmorValue                                    0x113CC       int
-    angEyeAngles                                  0x113D0       Vector
-    angEyeAngles[0]                               0x113D0       float
-    angEyeAngles[1]                               0x113D4       float
-    bHasDefuser                                   0x113DC       bool
-    bInHostageRescueZone                          0x113DD       bool
-    bHud_MiniScoreHidden                          0x113FE       bool
-    bHud_RadarHidden                              0x113FF       bool
-    nLastKillerIndex                              0x11400       int
-    nLastConcurrentKilled                         0x11404       int
-    nDeathCamMusic                                0x11408       int
-    cycleLatch                                    0x114E0       int
-    bPlayerDominated                              0x114E8       void*
-    bPlayerDominatingMe                           0x11529       void*
-    iWeaponPurchasesThisRound                     0x1156C       void*
+    iWeaponPurchasesThisRound                     0x11298       void*
+    EquippedLoadoutItemDefIndices                 0x116A4       void*
+    unActiveQuestId                               0x11778       int
+    nQuestProgressReason                          0x1177C       int
+    unPlayerTvControlFlags                        0x11780       int
+    unCurrentEquipmentValue                       0x11784       int
+    unRoundStartEquipmentValue                    0x11786       int
+    unFreezetimeEndEquipmentValue                 0x11788       int
+    rank                                          0x1178C       void*
+    passiveItems                                  0x117A4       void*
+    bHasParachute                                 0x117A4       bool
+    unMusicID                                     0x117A8       int
+    iAccount                                      0x117B8       int
+    bHasHelmet                                    0x117C0       bool
+    bHasHeavyArmor                                0x117C1       bool
+    nHeavyAssaultSuitCooldownRemaining            0x117C4       int
+    iClass                                        0x117C8       int
+    ArmorValue                                    0x117CC       int
+    angEyeAngles                                  0x117D0       Vector
+    angEyeAngles[0]                               0x117D0       float
+    angEyeAngles[1]                               0x117D4       float
+    bHasDefuser                                   0x117DC       bool
+    bInHostageRescueZone                          0x117DD       bool
+    bHud_MiniScoreHidden                          0x117FE       bool
+    bHud_RadarHidden                              0x117FF       bool
+    nLastKillerIndex                              0x11800       int
+    nLastConcurrentKilled                         0x11804       int
+    nDeathCamMusic                                0x11808       int
+    cycleLatch                                    0x118E0       int
+    bPlayerDominated                              0x118E8       void*
+    bPlayerDominatingMe                           0x11929       void*
     bIsLookingAtWeapon                            0x11974       bool
     bIsHoldingLookAtWeapon                        0x11975       bool
     vecPlayerPatchEconIndices                     0x119C4       void*
