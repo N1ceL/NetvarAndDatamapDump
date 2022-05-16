@@ -23,8 +23,8 @@ CBasePlayer
     Local                                         0x2FCC        CPlayerLocalData(?)
         chAreaBits                                0x2FD0        void*
         chAreaPortalBits                          0x2FF0        void*
-        nStepside                                 0x3008        
-        nOldButtons                               0x300C        
+        nStepside                                 0x3008        int
+        nOldButtons                               0x300C        int
         flFOVRate                                 0x3010        float
         iHideHUD                                  0x3014        int
         nDuckTimeMsecs                            0x3018        int
@@ -32,9 +32,9 @@ CBasePlayer
         nJumpTimeMsecs                            0x3020        int
         flFallVelocity                            0x3024        float
         flStepSize                                0x302C        float
-        viewPunchAngle                            0x3030        CBaseHandle
-        aimPunchAngle                             0x303C        CBaseHandle
-        aimPunchAngleVel                          0x3048        CBaseHandle
+        viewPunchAngle                            0x3030        QAngle
+        aimPunchAngle                             0x303C        QAngle
+        aimPunchAngleVel                          0x3048        QAngle
         bDucked                                   0x3054        bool
         bDucking                                  0x3055        bool
         flLastDuckTime                            0x3058        float
@@ -68,7 +68,7 @@ CBasePlayer
         audio.entIndex                            0x31D0        int
     hTonemapController                            0x31DC        CBaseHandle
     pl                                            0x31E0        CPlayerState(?)
-        deadflag                                  0x31E4        int
+        deadflag                                  0x31E4        bool
     iFOV                                          0x31F4        int
     iFOVStart                                     0x31F8        int
     afButtonLast                                  0x31FC        int
@@ -429,9 +429,9 @@ CBaseEntity
     Collision                                     0x320         CCollisionProperty(?)
         vecMins                                   0x328         Vector
         vecMaxs                                   0x334         Vector
-        usSolidFlags                              0x340         int
-        nSolidType                                0x342         int
-        triggerBloat                              0x343         int
+        usSolidFlags                              0x340         short
+        nSolidType                                0x342         char
+        triggerBloat                              0x343         char
         nSurroundType                             0x34A         int
         vecSpecifiedSurroundingMins               0x34C         Vector
         vecSpecifiedSurroundingMaxs               0x358         Vector
@@ -745,138 +745,138 @@ CClientRagdoll
     nRenderFX                                     0x25A         char
     nRenderMode                                   0x25B         char
     pRagdoll                                      0x9F4         CRagdoll(0x308)
-        ragdoll.listCount                         0x9F8         
-        ragdoll.allowStretch                      0x9FC         
-        ragdoll.pGroup                            0xA00         
-        ragdoll.list[0].originParentSpace         0xA04         
-        ragdoll.list[0].pObject                   0xA10         
-        ragdoll.list[0].pConstraint               0xA14         
-        ragdoll.list[0].parentIndex               0xA18         
-        ragdoll.list[1].originParentSpace         0xA1C         
-        ragdoll.list[1].pObject                   0xA28         
-        ragdoll.list[1].pConstraint               0xA2C         
-        ragdoll.list[1].parentIndex               0xA30         
-        ragdoll.list[2].originParentSpace         0xA34         
-        ragdoll.list[2].pObject                   0xA40         
-        ragdoll.list[2].pConstraint               0xA44         
-        ragdoll.list[2].parentIndex               0xA48         
-        ragdoll.list[3].originParentSpace         0xA4C         
-        ragdoll.list[3].pObject                   0xA58         
-        ragdoll.list[3].pConstraint               0xA5C         
-        ragdoll.list[3].parentIndex               0xA60         
-        ragdoll.list[4].originParentSpace         0xA64         
-        ragdoll.list[4].pObject                   0xA70         
-        ragdoll.list[4].pConstraint               0xA74         
-        ragdoll.list[4].parentIndex               0xA78         
-        ragdoll.list[5].originParentSpace         0xA7C         
-        ragdoll.list[5].pObject                   0xA88         
-        ragdoll.list[5].pConstraint               0xA8C         
-        ragdoll.list[5].parentIndex               0xA90         
-        ragdoll.list[6].originParentSpace         0xA94         
-        ragdoll.list[6].pObject                   0xAA0         
-        ragdoll.list[6].pConstraint               0xAA4         
-        ragdoll.list[6].parentIndex               0xAA8         
-        ragdoll.list[7].originParentSpace         0xAAC         
-        ragdoll.list[7].pObject                   0xAB8         
-        ragdoll.list[7].pConstraint               0xABC         
-        ragdoll.list[7].parentIndex               0xAC0         
-        ragdoll.list[8].originParentSpace         0xAC4         
-        ragdoll.list[8].pObject                   0xAD0         
-        ragdoll.list[8].pConstraint               0xAD4         
-        ragdoll.list[8].parentIndex               0xAD8         
-        ragdoll.list[9].originParentSpace         0xADC         
-        ragdoll.list[9].pObject                   0xAE8         
-        ragdoll.list[9].pConstraint               0xAEC         
-        ragdoll.list[9].parentIndex               0xAF0         
-        ragdoll.list[10].originParentSpace        0xAF4         
-        ragdoll.list[10].pObject                  0xB00         
-        ragdoll.list[10].pConstraint              0xB04         
-        ragdoll.list[10].parentIndex              0xB08         
-        ragdoll.list[11].originParentSpace        0xB0C         
-        ragdoll.list[11].pObject                  0xB18         
-        ragdoll.list[11].pConstraint              0xB1C         
-        ragdoll.list[11].parentIndex              0xB20         
-        ragdoll.list[12].originParentSpace        0xB24         
-        ragdoll.list[12].pObject                  0xB30         
-        ragdoll.list[12].pConstraint              0xB34         
-        ragdoll.list[12].parentIndex              0xB38         
-        ragdoll.list[13].originParentSpace        0xB3C         
-        ragdoll.list[13].pObject                  0xB48         
-        ragdoll.list[13].pConstraint              0xB4C         
-        ragdoll.list[13].parentIndex              0xB50         
-        ragdoll.list[14].originParentSpace        0xB54         
-        ragdoll.list[14].pObject                  0xB60         
-        ragdoll.list[14].pConstraint              0xB64         
-        ragdoll.list[14].parentIndex              0xB68         
-        ragdoll.list[15].originParentSpace        0xB6C         
-        ragdoll.list[15].pObject                  0xB78         
-        ragdoll.list[15].pConstraint              0xB7C         
-        ragdoll.list[15].parentIndex              0xB80         
-        ragdoll.list[16].originParentSpace        0xB84         
-        ragdoll.list[16].pObject                  0xB90         
-        ragdoll.list[16].pConstraint              0xB94         
-        ragdoll.list[16].parentIndex              0xB98         
-        ragdoll.list[17].originParentSpace        0xB9C         
-        ragdoll.list[17].pObject                  0xBA8         
-        ragdoll.list[17].pConstraint              0xBAC         
-        ragdoll.list[17].parentIndex              0xBB0         
-        ragdoll.list[18].originParentSpace        0xBB4         
-        ragdoll.list[18].pObject                  0xBC0         
-        ragdoll.list[18].pConstraint              0xBC4         
-        ragdoll.list[18].parentIndex              0xBC8         
-        ragdoll.list[19].originParentSpace        0xBCC         
-        ragdoll.list[19].pObject                  0xBD8         
-        ragdoll.list[19].pConstraint              0xBDC         
-        ragdoll.list[19].parentIndex              0xBE0         
-        ragdoll.list[20].originParentSpace        0xBE4         
-        ragdoll.list[20].pObject                  0xBF0         
-        ragdoll.list[20].pConstraint              0xBF4         
-        ragdoll.list[20].parentIndex              0xBF8         
-        ragdoll.list[21].originParentSpace        0xBFC         
-        ragdoll.list[21].pObject                  0xC08         
-        ragdoll.list[21].pConstraint              0xC0C         
-        ragdoll.list[21].parentIndex              0xC10         
-        ragdoll.list[22].originParentSpace        0xC14         
-        ragdoll.list[22].pObject                  0xC20         
-        ragdoll.list[22].pConstraint              0xC24         
-        ragdoll.list[22].parentIndex              0xC28         
-        ragdoll.list[23].originParentSpace        0xC2C         
-        ragdoll.list[23].pObject                  0xC38         
-        ragdoll.list[23].pConstraint              0xC3C         
-        ragdoll.list[23].parentIndex              0xC40         
-        ragdoll.boneIndex                         0xC44         
-        ragdoll.list[24].originParentSpace        0xC44         
-        ragdoll.list[24].pObject                  0xC50         
-        ragdoll.list[24].pConstraint              0xC54         
-        ragdoll.list[24].parentIndex              0xC58         
-        ragdoll.list[25].originParentSpace        0xC5C         
-        ragdoll.list[25].pObject                  0xC68         
-        ragdoll.list[25].pConstraint              0xC6C         
-        ragdoll.list[25].parentIndex              0xC70         
-        ragdoll.list[26].originParentSpace        0xC74         
-        ragdoll.list[26].pObject                  0xC80         
-        ragdoll.list[26].pConstraint              0xC84         
-        ragdoll.list[26].parentIndex              0xC88         
-        ragdoll.list[27].originParentSpace        0xC8C         
-        ragdoll.list[27].pObject                  0xC98         
-        ragdoll.list[27].pConstraint              0xC9C         
-        ragdoll.list[27].parentIndex              0xCA0         
-        ragdoll.list[28].originParentSpace        0xCA4         
-        ragdoll.list[28].pObject                  0xCB0         
-        ragdoll.list[28].pConstraint              0xCB4         
-        ragdoll.list[28].parentIndex              0xCB8         
-        ragdoll.list[29].originParentSpace        0xCBC         
-        ragdoll.list[29].pObject                  0xCC8         
-        ragdoll.list[29].pConstraint              0xCCC         
-        ragdoll.list[29].parentIndex              0xCD0         
-        ragdoll.list[30].originParentSpace        0xCD4         
-        ragdoll.list[30].pObject                  0xCE0         
-        ragdoll.list[30].pConstraint              0xCE4         
-        ragdoll.list[30].parentIndex              0xCE8         
-        ragdoll.list[31].originParentSpace        0xCEC         
-        ragdoll.list[31].pObject                  0xCF8         
-        ragdoll.list[31].pConstraint              0xCFC         
-        ragdoll.list[31].parentIndex              0xD00         
+        ragdoll.listCount                         0x9F8         int
+        ragdoll.allowStretch                      0x9FC         bool
+        ragdoll.pGroup                            0xA00         void*
+        ragdoll.list[0].originParentSpace         0xA04         Vector
+        ragdoll.list[0].pObject                   0xA10         void*
+        ragdoll.list[0].pConstraint               0xA14         void*
+        ragdoll.list[0].parentIndex               0xA18         int
+        ragdoll.list[1].originParentSpace         0xA1C         Vector
+        ragdoll.list[1].pObject                   0xA28         void*
+        ragdoll.list[1].pConstraint               0xA2C         void*
+        ragdoll.list[1].parentIndex               0xA30         int
+        ragdoll.list[2].originParentSpace         0xA34         Vector
+        ragdoll.list[2].pObject                   0xA40         void*
+        ragdoll.list[2].pConstraint               0xA44         void*
+        ragdoll.list[2].parentIndex               0xA48         int
+        ragdoll.list[3].originParentSpace         0xA4C         Vector
+        ragdoll.list[3].pObject                   0xA58         void*
+        ragdoll.list[3].pConstraint               0xA5C         void*
+        ragdoll.list[3].parentIndex               0xA60         int
+        ragdoll.list[4].originParentSpace         0xA64         Vector
+        ragdoll.list[4].pObject                   0xA70         void*
+        ragdoll.list[4].pConstraint               0xA74         void*
+        ragdoll.list[4].parentIndex               0xA78         int
+        ragdoll.list[5].originParentSpace         0xA7C         Vector
+        ragdoll.list[5].pObject                   0xA88         void*
+        ragdoll.list[5].pConstraint               0xA8C         void*
+        ragdoll.list[5].parentIndex               0xA90         int
+        ragdoll.list[6].originParentSpace         0xA94         Vector
+        ragdoll.list[6].pObject                   0xAA0         void*
+        ragdoll.list[6].pConstraint               0xAA4         void*
+        ragdoll.list[6].parentIndex               0xAA8         int
+        ragdoll.list[7].originParentSpace         0xAAC         Vector
+        ragdoll.list[7].pObject                   0xAB8         void*
+        ragdoll.list[7].pConstraint               0xABC         void*
+        ragdoll.list[7].parentIndex               0xAC0         int
+        ragdoll.list[8].originParentSpace         0xAC4         Vector
+        ragdoll.list[8].pObject                   0xAD0         void*
+        ragdoll.list[8].pConstraint               0xAD4         void*
+        ragdoll.list[8].parentIndex               0xAD8         int
+        ragdoll.list[9].originParentSpace         0xADC         Vector
+        ragdoll.list[9].pObject                   0xAE8         void*
+        ragdoll.list[9].pConstraint               0xAEC         void*
+        ragdoll.list[9].parentIndex               0xAF0         int
+        ragdoll.list[10].originParentSpace        0xAF4         Vector
+        ragdoll.list[10].pObject                  0xB00         void*
+        ragdoll.list[10].pConstraint              0xB04         void*
+        ragdoll.list[10].parentIndex              0xB08         int
+        ragdoll.list[11].originParentSpace        0xB0C         Vector
+        ragdoll.list[11].pObject                  0xB18         void*
+        ragdoll.list[11].pConstraint              0xB1C         void*
+        ragdoll.list[11].parentIndex              0xB20         int
+        ragdoll.list[12].originParentSpace        0xB24         Vector
+        ragdoll.list[12].pObject                  0xB30         void*
+        ragdoll.list[12].pConstraint              0xB34         void*
+        ragdoll.list[12].parentIndex              0xB38         int
+        ragdoll.list[13].originParentSpace        0xB3C         Vector
+        ragdoll.list[13].pObject                  0xB48         void*
+        ragdoll.list[13].pConstraint              0xB4C         void*
+        ragdoll.list[13].parentIndex              0xB50         int
+        ragdoll.list[14].originParentSpace        0xB54         Vector
+        ragdoll.list[14].pObject                  0xB60         void*
+        ragdoll.list[14].pConstraint              0xB64         void*
+        ragdoll.list[14].parentIndex              0xB68         int
+        ragdoll.list[15].originParentSpace        0xB6C         Vector
+        ragdoll.list[15].pObject                  0xB78         void*
+        ragdoll.list[15].pConstraint              0xB7C         void*
+        ragdoll.list[15].parentIndex              0xB80         int
+        ragdoll.list[16].originParentSpace        0xB84         Vector
+        ragdoll.list[16].pObject                  0xB90         void*
+        ragdoll.list[16].pConstraint              0xB94         void*
+        ragdoll.list[16].parentIndex              0xB98         int
+        ragdoll.list[17].originParentSpace        0xB9C         Vector
+        ragdoll.list[17].pObject                  0xBA8         void*
+        ragdoll.list[17].pConstraint              0xBAC         void*
+        ragdoll.list[17].parentIndex              0xBB0         int
+        ragdoll.list[18].originParentSpace        0xBB4         Vector
+        ragdoll.list[18].pObject                  0xBC0         void*
+        ragdoll.list[18].pConstraint              0xBC4         void*
+        ragdoll.list[18].parentIndex              0xBC8         int
+        ragdoll.list[19].originParentSpace        0xBCC         Vector
+        ragdoll.list[19].pObject                  0xBD8         void*
+        ragdoll.list[19].pConstraint              0xBDC         void*
+        ragdoll.list[19].parentIndex              0xBE0         int
+        ragdoll.list[20].originParentSpace        0xBE4         Vector
+        ragdoll.list[20].pObject                  0xBF0         void*
+        ragdoll.list[20].pConstraint              0xBF4         void*
+        ragdoll.list[20].parentIndex              0xBF8         int
+        ragdoll.list[21].originParentSpace        0xBFC         Vector
+        ragdoll.list[21].pObject                  0xC08         void*
+        ragdoll.list[21].pConstraint              0xC0C         void*
+        ragdoll.list[21].parentIndex              0xC10         int
+        ragdoll.list[22].originParentSpace        0xC14         Vector
+        ragdoll.list[22].pObject                  0xC20         void*
+        ragdoll.list[22].pConstraint              0xC24         void*
+        ragdoll.list[22].parentIndex              0xC28         int
+        ragdoll.list[23].originParentSpace        0xC2C         Vector
+        ragdoll.list[23].pObject                  0xC38         void*
+        ragdoll.list[23].pConstraint              0xC3C         void*
+        ragdoll.list[23].parentIndex              0xC40         int
+        ragdoll.boneIndex                         0xC44         int[24]
+        ragdoll.list[24].originParentSpace        0xC44         Vector
+        ragdoll.list[24].pObject                  0xC50         void*
+        ragdoll.list[24].pConstraint              0xC54         void*
+        ragdoll.list[24].parentIndex              0xC58         int
+        ragdoll.list[25].originParentSpace        0xC5C         Vector
+        ragdoll.list[25].pObject                  0xC68         void*
+        ragdoll.list[25].pConstraint              0xC6C         void*
+        ragdoll.list[25].parentIndex              0xC70         int
+        ragdoll.list[26].originParentSpace        0xC74         Vector
+        ragdoll.list[26].pObject                  0xC80         void*
+        ragdoll.list[26].pConstraint              0xC84         void*
+        ragdoll.list[26].parentIndex              0xC88         int
+        ragdoll.list[27].originParentSpace        0xC8C         Vector
+        ragdoll.list[27].pObject                  0xC98         void*
+        ragdoll.list[27].pConstraint              0xC9C         void*
+        ragdoll.list[27].parentIndex              0xCA0         int
+        ragdoll.list[28].originParentSpace        0xCA4         Vector
+        ragdoll.list[28].pObject                  0xCB0         void*
+        ragdoll.list[28].pConstraint              0xCB4         void*
+        ragdoll.list[28].parentIndex              0xCB8         int
+        ragdoll.list[29].originParentSpace        0xCBC         Vector
+        ragdoll.list[29].pObject                  0xCC8         void*
+        ragdoll.list[29].pConstraint              0xCCC         void*
+        ragdoll.list[29].parentIndex              0xCD0         int
+        ragdoll.list[30].originParentSpace        0xCD4         Vector
+        ragdoll.list[30].pObject                  0xCE0         void*
+        ragdoll.list[30].pConstraint              0xCE4         void*
+        ragdoll.list[30].parentIndex              0xCE8         int
+        ragdoll.list[31].originParentSpace        0xCEC         Vector
+        ragdoll.list[31].pObject                  0xCF8         void*
+        ragdoll.list[31].pConstraint              0xCFC         void*
+        ragdoll.list[31].parentIndex              0xD00         int
     nSkin                                         0xA1C         int
     nBody                                         0xA20         int
     bFadeOut                                      0x2994        bool
@@ -1020,10 +1020,10 @@ CWeaponTablet
 
 CSpriteTrail
     vecSteps                                      0xA40         TrailPoint_t(0x18)
-        vecScreenPos                              0xA40         
-        flDieTime                                 0xA4C         
-        flTexCoord                                0xA50         
-        flWidthVariance                           0xA54         
+        vecScreenPos                              0xA40         Vector
+        flDieTime                                 0xA4C         float
+        flTexCoord                                0xA50         float
+        flWidthVariance                           0xA54         float
     nFirstStep                                    0x1040        int
     nStepCount                                    0x1044        int
     flUpdateTime                                  0x1048        float
@@ -1062,15 +1062,15 @@ CWeaponCSBase
 
 CSoundPatch
     pitch                                         0x0           CSoundEnvelope(0x10)
-        current                                   0x0           
-        target                                    0x4           
-        rate                                      0x8           
-        forceupdate                               0xC           
+        current                                   0x0           float
+        target                                    0x4           float
+        rate                                      0x8           float
+        forceupdate                               0xC           bool
     volume                                        0x10          CSoundEnvelope(0x10)
-        current                                   0x10          
-        target                                    0x14          
-        rate                                      0x18          
-        forceupdate                               0x1C          
+        current                                   0x10          float
+        target                                    0x14          float
+        rate                                      0x18          float
+        forceupdate                               0x1C          bool
     soundlevel                                    0x24          int
     shutdownTime                                  0x28          float
     iszSoundName                                  0x2C          char*
@@ -1084,8 +1084,8 @@ CSoundPatch
     isPlaying                                     0x5C          int
     flScriptVolume                                0x60          float
     Filter                                        0x64          CCopyRecipientFilter(0x1C)
-        Flags                                     0x68          
-        Recipients                                0x6C          
+        Flags                                     0x68          int
+        Recipients                                0x6C          void*
     flCloseCaptionDuration                        0x80          float
 
 CPropVehicleChoreoGeneric
@@ -1095,15 +1095,15 @@ CPropVehicleChoreoGeneric
     vecEyeExitEndpoint                            0x2A10        Vector
     bForceEyesToAttachment                        0x2A1C        bool
     ViewSmoothingData                             0x2A24        ViewSmoothingData_t(0x78)
-        flFOV                                     0x2A3C        
-        bRunningEnterExit                         0x2A61        
-        bWasRunningAnim                           0x2A62        
-        flEnterExitStartTime                      0x2A64        
-        flEnterExitDuration                       0x2A68        
-        vecAnglesSaved                            0x2A6C        
-        vecOriginSaved                            0x2A78        
-        vecAngleDiffSaved                         0x2A84        
-        vecAngleDiffMin                           0x2A90        
+        flFOV                                     0x2A3C        float
+        bRunningEnterExit                         0x2A61        bool
+        bWasRunningAnim                           0x2A62        bool
+        flEnterExitStartTime                      0x2A64        float
+        flEnterExitDuration                       0x2A68        float
+        vecAnglesSaved                            0x2A6C        QAngle
+        vecOriginSaved                            0x2A78        Vector
+        vecAngleDiffSaved                         0x2A84        QAngle
+        vecAngleDiffMin                           0x2A90        QAngle
     vehicleView.bClampEyeAngles                   0x2AA0        int
     vehicleView.flPitchCurveZero                  0x2AA4        float
     vehicleView.flPitchCurveLinear                0x2AA8        float
@@ -1148,15 +1148,15 @@ CPropVehicleDriveable
     bHasGun                                       0x2A1C        bool
     bUnableToFire                                 0x2A1D        bool
     ViewSmoothingData                             0x2A24        ViewSmoothingData_t(0x78)
-        flFOV                                     0x2A3C        
-        bRunningEnterExit                         0x2A61        
-        bWasRunningAnim                           0x2A62        
-        flEnterExitStartTime                      0x2A64        
-        flEnterExitDuration                       0x2A68        
-        vecAnglesSaved                            0x2A6C        
-        vecOriginSaved                            0x2A78        
-        vecAngleDiffSaved                         0x2A84        
-        vecAngleDiffMin                           0x2A90        
+        flFOV                                     0x2A3C        float
+        bRunningEnterExit                         0x2A61        bool
+        bWasRunningAnim                           0x2A62        bool
+        flEnterExitStartTime                      0x2A64        float
+        flEnterExitDuration                       0x2A68        float
+        vecAnglesSaved                            0x2A6C        QAngle
+        vecOriginSaved                            0x2A78        Vector
+        vecAngleDiffSaved                         0x2A84        QAngle
+        vecAngleDiffMin                           0x2A90        QAngle
 
 CMapVetoPickController
     nDraftType                                    0x9E8         int
@@ -2505,10 +2505,10 @@ CTEShowLine
 
 CDispNeighbor
     SubNeighbors                                  0x0           CDispSubNeighbor(0x6)
-        iNeighbor                                 0x0           
-        NeighborOrientation                       0x2           
-        Span                                      0x3           
-        NeighborSpan                              0x4           
+        iNeighbor                                 0x0           short
+        NeighborOrientation                       0x2           char
+        Span                                      0x3           char
+        NeighborSpan                              0x4           char
 
 CompressedLightCube
     Color                                         0x0           char[24]
@@ -2610,12 +2610,12 @@ CTEEffectDispatch
 
 CAttributeContainer
     Item                                          0x40          CEconItemView(0x3F0)
-        iItemDefinitionIndex                      0x22A         
-        iEntityQuality                            0x22C         
-        iEntityLevel                              0x230         
-        iItemID                                   0x238         
-        bInitialized                              0x254         
-        AttributeList                             0x284         
+        iItemDefinitionIndex                      0x22A         short
+        iEntityQuality                            0x22C         int
+        iEntityLevel                              0x230         int
+        iItemID                                   0x238         int[2]
+        bInitialized                              0x254         bool
+        AttributeList                             0x284         CAttributeList(0x1C)
 
 CRagdollManager
     iCurrentMaxRagdollCount                       0x9D8         int
@@ -2891,14 +2891,14 @@ ddispinfo_t
     iLightmapAlphaStart                           0x28          int
     iLightmapSamplePositionStart                  0x2C          int
     EdgeNeighbors                                 0x30          CDispNeighbor(0xC)
-        SubNeighbors                              0x30          
-            iNeighbor                             0x0           
-            NeighborOrientation                   0x2           
-            Span                                  0x3           
-            NeighborSpan                          0x4           
+        SubNeighbors                              0x30          CDispSubNeighbor(0x6)
+            iNeighbor                             0x0           short
+            NeighborOrientation                   0x2           char
+            Span                                  0x3           char
+            NeighborSpan                          0x4           char
     CornerNeighbors                               0x60          CDispCornerNeighbors(0xA)
-        Neighbors                                 0x60          
-        nNeighbors                                0x68          
+        Neighbors                                 0x60          short[4]
+        nNeighbors                                0x68          char
     AllowedVerts                                  0x88          int[10]
 
 VTFFileHeaderPS3_t
@@ -2996,7 +2996,7 @@ dleaf_version_0_t
     numleafbrushes                                0x1A          short
     leafWaterDataID                               0x1C          short
     AmbientLighting                               0x1E          CompressedLightCube(0x18)
-        Color                                     0x1E          
+        Color                                     0x1E          char[24]
 
 dleaf_t
     contents                                      0x0           int
@@ -3172,7 +3172,7 @@ dgamelump_t
 
 dleafambientlighting_t
     cube                                          0x0           CompressedLightCube(0x18)
-        Color                                     0x0           
+        Color                                     0x0           char[24]
     x                                             0x18          char
     y                                             0x19          char
     z                                             0x1A          char
@@ -3269,10 +3269,10 @@ BSPHeader_t
     ident                                         0x0           int
     nVersion                                      0x4           int
     lumps                                         0x8           lump_t(0x10)
-        fileofs                                   0x8           
-        filelen                                   0xC           
-        version                                   0x10          
-        fourCC                                    0x14          
+        fileofs                                   0x8           int
+        filelen                                   0xC           int
+        version                                   0x10          int
+        fourCC                                    0x14          char[4]
     mapRevision                                   0x408         int
 
 ZIP_PreloadHeader
